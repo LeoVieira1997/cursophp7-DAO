@@ -2,8 +2,14 @@
 
     require_once 'config.php';
 
-    $leo = new Usuario();
+//    CARREGA UM USUÁRIO
+//    $leo = new Usuario();
+//    $leo->loadById(1);
+//    echo $leo;
 
-    $leo->loadById(1);
+//    CARREGA UMA LISTA DE USUÁRIOS
+//    $lista = Usuario::getList();
+//    echo json_encode($lista);
 
-    echo $leo;
+    $search = Usuario::search('tes');
+    echo json_encode($search);

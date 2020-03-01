@@ -93,6 +93,25 @@ class Usuario
 
     }
 
+    public static function getList()
+    {
+        $sql = new Sql();
+
+        return $sql->select("SELECT * FROM tb_usuarios ORDER BY nome;");
+
+    }
+
+    public static function search($nome)
+    {
+
+        $sql = new Sql();
+
+        return $sql->select('SELECT * FROM tb_usuarios WHERE 1 AND nome LIKE :SEARCH ORDER BY nome', array(
+            ':SEARCH'=>'%'.$nome.'%'
+        ));
+
+    }
+
     public function __toString()
     {
         return json_encode(array(
